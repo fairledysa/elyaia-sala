@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.turbo/
+dist/
+build/
+.env
+.env.*
+*.log
+node_modules/
+node_modules/
+.pnpm-store/
+.next/
