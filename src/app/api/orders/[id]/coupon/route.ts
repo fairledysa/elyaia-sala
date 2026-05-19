@@ -110,7 +110,7 @@ async function createCartWithFallbacks(
   for (const payload of attempts) {
     const { data, error } = await admin
       .from("carts")
-      .insert(payload)
+      .insert(payload as any)
       .select("id")
       .single();
 
