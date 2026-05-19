@@ -1,0 +1,793 @@
+/* FILE: apps/merchant/src/app/(app)/_styles/pages/order-statuses.css */
+
+.adm-statuses {
+  min-height: 100vh;
+  color: var(--adm-text, #1f2933);
+}
+
+.adm-statuses__inner {
+  width: min(100%, 1380px);
+  margin-inline: auto;
+  display: grid;
+  gap: 18px;
+}
+
+.adm-statuses-icon {
+  font-size: 20px;
+}
+
+/* Hero */
+
+.adm-statuses-hero {
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  border-radius: 26px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+}
+
+.adm-statuses-hero__main {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.adm-statuses-hero__icon {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  color: var(--adm-primary, #0d3b45);
+  background: var(--adm-mint-soft, #ecfaf5);
+  border: 1px solid rgb(13 59 69 / 0.12);
+}
+
+.adm-statuses-hero__text {
+  min-width: 0;
+}
+
+.adm-statuses-hero__text h1 {
+  margin: 0;
+  color: var(--adm-text, #1f2933);
+  font-size: 26px;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+}
+
+.adm-statuses-hero__text p {
+  margin: 6px 0 0;
+  color: var(--adm-muted, #64748b);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+/* Buttons */
+
+.adm-statuses-btn {
+  min-height: 42px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    background 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+.adm-statuses-btn:hover {
+  transform: translateY(-1px);
+}
+
+.adm-statuses-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+  transform: none;
+}
+
+.adm-statuses-btn--primary {
+  background: var(--adm-primary, #0d3b45);
+  color: #ffffff;
+  border-color: var(--adm-primary, #0d3b45);
+}
+
+.adm-statuses-btn--primary:hover {
+  background: var(--adm-primary-dark, #092f37);
+  border-color: var(--adm-primary-dark, #092f37);
+}
+
+.adm-statuses-btn--light {
+  background: var(--adm-surface, #ffffff);
+  color: var(--adm-text, #1f2933);
+  border-color: var(--adm-border, #e2e8f0);
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+}
+
+.adm-statuses-btn--light:hover {
+  color: var(--adm-primary, #0d3b45);
+  border-color: rgb(13 59 69 / 0.2);
+  background: var(--adm-mint-soft, #ecfaf5);
+}
+
+.adm-statuses-btn--danger {
+  background: #ffffff;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.adm-statuses-btn--danger:hover {
+  background: #fef2f2;
+}
+
+/* Groups */
+
+.adm-statuses-group {
+  overflow: hidden;
+  border-radius: 26px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+}
+
+.adm-statuses-group__head {
+  min-height: 76px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--adm-border, #e2e8f0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.adm-statuses-group__info {
+  min-width: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.adm-statuses-group__count {
+  color: var(--adm-muted, #64748b);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.adm-statuses-baseBadge {
+  width: fit-content;
+  min-height: 32px;
+  border-radius: 999px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--adm-status-color, var(--adm-primary, #0d3b45));
+  background: color-mix(
+    in srgb,
+    var(--adm-status-color, var(--adm-primary, #0d3b45)) 9%,
+    #ffffff 91%
+  );
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--adm-status-color, var(--adm-primary, #0d3b45)) 20%,
+      transparent
+    );
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.adm-statuses-baseBadge__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--adm-status-color, var(--adm-primary, #0d3b45));
+}
+
+/* Rows */
+
+.adm-statuses-list {
+  display: grid;
+}
+
+.adm-statuses-row {
+  padding: 18px 20px;
+  border-bottom: 1px solid rgb(226 232 240 / 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  transition: background 150ms ease;
+}
+
+.adm-statuses-row:hover {
+  background: #fbfcfd;
+}
+
+.adm-statuses-row__main {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.adm-statuses-row__icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 15px;
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--adm-status-color, var(--adm-primary, #0d3b45)) 20%,
+      transparent
+    );
+  background: color-mix(
+    in srgb,
+    var(--adm-status-color, var(--adm-primary, #0d3b45)) 8%,
+    #ffffff 92%
+  );
+  color: var(--adm-status-color, var(--adm-primary, #0d3b45));
+  display: grid;
+  place-items: center;
+}
+
+.adm-statuses-row__dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 999px;
+  background: var(--adm-status-color, var(--adm-primary, #0d3b45));
+}
+
+.adm-statuses-row__body {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.adm-statuses-row__titleLine {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.adm-statuses-row__title {
+  min-width: 0;
+  color: var(--adm-text, #1f2933);
+  font-size: 15px;
+  font-weight: 950;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adm-statuses-row__message {
+  max-width: 680px;
+  color: var(--adm-muted, #64748b);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.7;
+}
+
+.adm-statuses-row__actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.adm-statuses-miniBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  color: var(--adm-muted, #64748b);
+  display: inline-grid;
+  place-items: center;
+  font-size: 15px;
+  font-weight: 950;
+  cursor: pointer;
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+}
+
+.adm-statuses-miniBtn:hover {
+  color: var(--adm-primary, #0d3b45);
+  border-color: rgb(13 59 69 / 0.2);
+  background: var(--adm-mint-soft, #ecfaf5);
+}
+
+.adm-statuses-miniBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.adm-statuses-pill {
+  min-height: 24px;
+  border-radius: 999px;
+  padding: 0 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 900;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.adm-statuses-pill--neutral {
+  color: var(--adm-muted, #64748b);
+  background: var(--adm-soft, #f2f4f6);
+}
+
+.adm-statuses-pill--mint {
+  color: var(--adm-primary, #0d3b45);
+  background: var(--adm-mint-soft, #ecfaf5);
+  border-color: rgb(13 59 69 / 0.1);
+}
+
+.adm-statuses-empty {
+  padding: 34px 20px;
+  color: var(--adm-muted, #64748b);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* Loading */
+
+.adm-statuses-loading {
+  display: grid;
+  gap: 14px;
+}
+
+.adm-statuses-skeleton {
+  height: 148px;
+  border-radius: 26px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  animation: admStatusesPulse 1.1s ease-in-out infinite;
+}
+
+@keyframes admStatusesPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+ /* Form + Dialog */
+
+.adm-statuses-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: start center;
+  padding: 40px 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.adm-statuses-dialog__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  border: 0;
+  background: rgb(15 23 42 / 0.42);
+  backdrop-filter: blur(2px);
+}
+
+.adm-statuses-dialog__panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 760px);
+  border-radius: 26px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  box-shadow: 0 30px 90px rgb(15 23 42 / 0.22);
+  overflow: visible;
+}
+
+/* قاعدة ثابتة للهيدر:
+   العنوان يمين - زر الخروج يسار */
+.adm-statuses-dialog__head {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--adm-border, #e2e8f0);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--adm-surface, #ffffff);
+  border-start-start-radius: 26px;
+  border-start-end-radius: 26px;
+}
+
+.adm-statuses-dialog__titleWrap {
+  order: 1;
+  min-width: 0;
+  flex: 1;
+  text-align: right;
+}
+
+.adm-statuses-dialog__close {
+  order: 2;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--adm-muted, #64748b);
+  display: inline-grid;
+  place-items: center;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease;
+}
+
+.adm-statuses-dialog__close:hover {
+  background: var(--adm-soft, #f2f4f6);
+  color: var(--adm-primary, #0d3b45);
+  border-color: var(--adm-border, #e2e8f0);
+}
+
+.adm-statuses-dialog__close:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.adm-statuses-dialog__title {
+  margin: 0;
+  color: var(--adm-text, #1f2933);
+  font-size: 20px;
+  font-weight: 950;
+  line-height: 1.35;
+}
+
+.adm-statuses-dialog__desc {
+  margin-top: 6px;
+  color: var(--adm-muted, #64748b);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.7;
+}
+
+.adm-statuses-form {
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.adm-statuses-form__grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.adm-statuses-form__grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.adm-statuses-field {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.adm-statuses-label {
+  color: var(--adm-text, #1f2933);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.adm-statuses-input,
+.adm-statuses-textarea {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  color: var(--adm-text, #1f2933);
+  padding: 0 14px;
+  font-size: 14px;
+  font-weight: 750;
+  outline: 0;
+}
+
+.adm-statuses-input {
+  height: 46px;
+}
+
+.adm-statuses-textarea {
+  min-height: 96px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.adm-statuses-input::placeholder,
+.adm-statuses-textarea::placeholder {
+  color: var(--adm-soft-text, #94a3b8);
+}
+
+.adm-statuses-input:focus,
+.adm-statuses-textarea:focus {
+  border-color: rgb(13 59 69 / 0.28);
+  box-shadow: 0 0 0 4px rgb(13 59 69 / 0.08);
+}
+
+.adm-statuses-input--disabled {
+  cursor: not-allowed;
+  background: var(--adm-soft, #f2f4f6);
+  color: var(--adm-muted, #64748b);
+}
+
+.adm-statuses-toggleRow {
+  min-height: 48px;
+  border-radius: 16px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--adm-text, #1f2933);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.adm-statuses-toggleRow input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--adm-primary, #0d3b45);
+}
+
+.adm-statuses-dialog__footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--adm-border, #e2e8f0);
+  background: #fbfcfd;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  border-end-start-radius: 26px;
+  border-end-end-radius: 26px;
+}
+
+/* Icon picker */
+
+.adm-statuses-iconPreview {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  border-radius: 14px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  color: var(--adm-status-color, var(--adm-primary, #0d3b45));
+  display: grid;
+  place-items: center;
+}
+
+.adm-statuses-iconPicker {
+  position: relative;
+}
+
+.adm-statuses-iconPicker__trigger {
+  width: 100%;
+  min-height: 46px;
+  border-radius: 16px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.adm-statuses-iconPicker__trigger:hover {
+  border-color: rgb(13 59 69 / 0.2);
+}
+
+.adm-statuses-iconPicker__selected {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.adm-statuses-iconPicker__text {
+  min-width: 0;
+  color: var(--adm-text, #1f2933);
+  font-size: 13px;
+  font-weight: 850;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adm-statuses-iconPicker__text.is-muted {
+  color: var(--adm-soft-text, #94a3b8);
+}
+
+.adm-statuses-iconPicker__chevron {
+  color: var(--adm-muted, #64748b);
+  font-size: 13px;
+}
+
+.adm-statuses-iconPicker__panel {
+  position: absolute;
+  inset-inline-start: 0;
+  top: calc(100% + 8px);
+  z-index: 10000;
+  width: 320px;
+  border-radius: 20px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  padding: 12px;
+  box-shadow: 0 22px 70px rgb(15 23 42 / 0.16);
+}
+
+.adm-statuses-iconPicker__pager {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.adm-statuses-iconPicker__pagerBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  color: var(--adm-muted, #64748b);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.adm-statuses-iconPicker__pagerBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.adm-statuses-iconPicker__pageText {
+  color: var(--adm-text, #1f2933);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.adm-statuses-iconPicker__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.adm-statuses-iconPicker__option {
+  height: 46px;
+  border-radius: 14px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  color: var(--adm-muted, #64748b);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.adm-statuses-iconPicker__option:hover {
+  background: var(--adm-soft, #f2f4f6);
+  color: var(--adm-primary, #0d3b45);
+}
+
+.adm-statuses-iconPicker__option.is-selected {
+  border-color: rgb(13 59 69 / 0.24);
+  background: var(--adm-mint-soft, #ecfaf5);
+  color: var(--adm-primary, #0d3b45);
+}
+
+/* Responsive */
+
+@media (max-width: 980px) {
+  .adm-statuses-hero,
+  .adm-statuses-group__head,
+  .adm-statuses-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .adm-statuses-row__actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .adm-statuses-form__grid3,
+  .adm-statuses-form__grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .adm-statuses__inner {
+    gap: 14px;
+  }
+
+  .adm-statuses-hero,
+  .adm-statuses-group,
+  .adm-statuses-dialog__panel {
+    border-radius: 22px;
+  }
+
+  .adm-statuses-dialog {
+    padding: 18px 12px;
+  }
+
+  .adm-statuses-hero {
+    padding: 16px;
+  }
+
+  .adm-statuses-hero__text h1 {
+    font-size: 22px;
+  }
+
+  .adm-statuses-row,
+  .adm-statuses-group__head {
+    padding: 16px;
+  }
+
+  .adm-statuses-row__main {
+    width: 100%;
+  }
+
+  .adm-statuses-btn {
+    width: 100%;
+  }
+
+  .adm-statuses-row__actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .adm-statuses-miniBtn {
+    width: 100%;
+  }
+
+  .adm-statuses-dialog__footer {
+    flex-direction: column-reverse;
+  }
+
+  .adm-statuses-iconPicker__panel {
+    width: min(320px, calc(100vw - 40px));
+  }
+}

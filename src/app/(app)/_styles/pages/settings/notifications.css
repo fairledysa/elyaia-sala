@@ -1,0 +1,133 @@
+/* FILE: apps/merchant/src/app/(app)/_styles/pages/settings/notifications.css */
+
+/* =========================================================
+   Notifications Settings Page
+   صفحة الإشعارات - واجهة شكلية حاليًا
+   ========================================================= */
+
+.adm-notifications {
+  color: var(--adm-text, #1f2933);
+}
+
+.adm-notifications-heroIcon {
+  color: var(--adm-primary, #0d3b45);
+}
+
+.adm-notifications-card {
+  overflow: hidden;
+}
+
+.adm-notifications-cardBody {
+  padding: 0;
+}
+
+.adm-notifications-table {
+  overflow: hidden;
+  background: var(--adm-surface, #ffffff);
+}
+
+.adm-notifications-table__head,
+.adm-notifications-row {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.4fr) minmax(180px, 0.8fr) minmax(180px, 0.8fr);
+  align-items: center;
+}
+
+.adm-notifications-table__head {
+  min-height: 54px;
+  border-bottom: 1px solid var(--adm-border, #e2e8f0);
+  background: color-mix(in srgb, var(--adm-soft, #f2f4f6) 72%, #ffffff);
+  color: var(--adm-muted, #64748b);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.adm-notifications-table__head > div {
+  padding: 0 18px;
+}
+
+.adm-notifications-table__body {
+  display: grid;
+}
+
+.adm-notifications-row {
+  min-height: 54px;
+  border-bottom: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+}
+
+.adm-notifications-row:last-child {
+  border-bottom: 0;
+}
+
+.adm-notifications-row__title {
+  padding: 0 18px;
+  color: var(--adm-text, #1f2933);
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1.7;
+}
+
+.adm-notifications-row__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+}
+
+.adm-notifications-switch {
+  position: relative;
+  width: 42px;
+  height: 23px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 999px;
+  background: #eef2f4;
+  padding: 2px;
+  cursor: default;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.adm-notifications-switch span {
+  display: block;
+  width: 17px;
+  height: 17px;
+  border-radius: 999px;
+  background: var(--adm-surface, #ffffff);
+  box-shadow: 0 2px 8px rgb(15 23 42 / 0.14);
+  transform: translateX(0);
+  transition: transform 160ms ease;
+}
+
+.adm-notifications-switch.is-active {
+  border-color: #72d9c8;
+  background: #72d9c8;
+}
+
+.adm-notifications-switch.is-active span {
+  transform: translateX(-19px);
+}
+
+.adm-notifications-note {
+  margin: 18px;
+  border: 1px solid color-mix(in srgb, var(--adm-gold, #e8d6a8) 70%, var(--adm-border, #e2e8f0));
+  border-radius: 18px;
+  background: var(--adm-gold-soft, #faf4e1);
+  padding: 12px 14px;
+  color: var(--adm-primary-dark, #092f37);
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .adm-notifications-table {
+    overflow-x: auto;
+  }
+
+  .adm-notifications-table__head,
+  .adm-notifications-row {
+    min-width: 760px;
+  }
+}

@@ -1,0 +1,46 @@
+/* FILE: apps/merchant/src/app/(app)/_styles/admin.css */
+
+/* Foundation */
+@import "./foundation/admin.tokens.css";
+@import "./foundation/admin.base.css";
+@import "./foundation/admin.utilities.css";
+
+/* Shell */
+@import "../_shell/admin-shell.css";
+
+/* Components */
+@import "./components/admin-buttons.css";
+@import "./components/admin-cards.css";
+@import "./components/admin-forms.css";
+
+/* Pages */
+@import "./pages/orders.css";
+@import "./pages/order-statuses.css";
+@import "./pages/order-details.css";
+@import "./pages/order-edit.css";
+@import "./pages/customers.css";
+@import "./pages/products.css";
+@import "./pages/pages.css";
+@import "./pages/feedback.css";
+@import "./pages/marketing-tools.css";
+@import "./pages/coupons.css";
+@import "./pages/themes.css";
+@import "./pages/advertisements.css";
+
+/* Pages/settings */
+@import "./pages/settings/basic.css";
+@import "./pages/settings/settings.css";
+@import "./pages/settings/seo.css";
+@import "./pages/settings/seo-meta.css";
+@import "./pages/settings/shipping.css";
+@import "./pages/settings/payment.css";
+@import "./pages/settings/brands.css";
+@import "./pages/settings/currencies.css";
+@import "./pages/settings/taxes.css";
+@import "./pages/settings/shipping-cod-rules.css";
+@import "./pages/settings/rating-settings-modal.css";
+@import "./pages/settings/maintenance-settings-modal.css";
+@import "./pages/settings/notifications.css";
+@import "./pages/settings/order-options.css";
+@import "./pages/settings/size-guides.css";
+@import "./pages/settings/domains.css";

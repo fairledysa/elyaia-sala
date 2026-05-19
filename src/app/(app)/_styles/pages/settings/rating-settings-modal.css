@@ -1,0 +1,479 @@
+/* FILE: apps/merchant/src/app/(app)/_styles/pages/settings/rating-settings-modal.css */
+
+/* =========================================================
+   Settings / Rating Settings Modal
+   ========================================================= */
+
+.adm-settings-tile--button {
+  width: 100%;
+  cursor: pointer;
+  appearance: none;
+  font: inherit;
+  text-align: inherit;
+}
+
+.adm-rating-modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.adm-rating-modalOverlay__backdrop {
+  position: absolute;
+  inset: 0;
+  cursor: default;
+  border: 0;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(13, 59, 69, 0.18),
+      transparent 36%
+    ),
+    rgba(3, 19, 23, 0.54);
+  backdrop-filter: blur(8px);
+}
+
+.adm-rating-modal {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(860px, 100%);
+  max-height: min(92vh, 980px);
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid rgba(226, 232, 240, 0.96);
+  border-radius: 28px;
+  background: var(--adm-surface, #fff);
+  box-shadow:
+    0 28px 70px rgba(3, 19, 23, 0.22),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+.adm-rating-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 24px;
+  background:
+    linear-gradient(
+      135deg,
+      var(--adm-primary-dark, #092f37),
+      var(--adm-primary, #0d3b45)
+    );
+  color: #fff;
+}
+
+.adm-rating-modal__eyebrow {
+  margin: 0 0 8px;
+  color: var(--adm-gold, #e8d6a8);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.adm-rating-modal__header h2 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.adm-rating-modal__header p:not(.adm-rating-modal__eyebrow) {
+  max-width: 620px;
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.adm-rating-modal__close {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  cursor: pointer;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.10);
+  color: #fff;
+  font-size: 26px;
+  line-height: 1;
+  transition:
+    transform 0.18s ease,
+    background-color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.adm-rating-modal__close:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.36);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.adm-rating-modal__body {
+  overflow: auto;
+  padding: 20px;
+  background:
+    linear-gradient(180deg, rgba(242, 244, 246, 0.58), transparent 180px),
+    var(--adm-bg, #fafbfc);
+}
+
+.adm-rating-modal__section {
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 24px;
+  background: var(--adm-surface, #fff);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.045);
+}
+
+.adm-rating-modal__section + .adm-rating-modal__section {
+  margin-top: 16px;
+}
+
+.adm-rating-modal__sectionTitle {
+  padding: 18px 18px 12px;
+  border-bottom: 1px solid var(--adm-border, #e2e8f0);
+}
+
+.adm-rating-modal__sectionTitle h3 {
+  margin: 0;
+  color: var(--adm-text, #1f2933);
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.adm-rating-modal__sectionTitle p {
+  margin: 7px 0 0;
+  color: var(--adm-muted, #64748b);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.adm-rating-modal__switchRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 74px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.74);
+}
+
+.adm-rating-modal__switchRow:last-child {
+  border-bottom: 0;
+}
+
+.adm-rating-modal__switchText {
+  min-width: 0;
+}
+
+.adm-rating-modal__switchText h4 {
+  margin: 0;
+  color: var(--adm-text, #1f2933);
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1.6;
+}
+
+.adm-rating-modal__switchText p {
+  margin: 4px 0 0;
+  color: var(--adm-muted, #64748b);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.adm-rating-switch {
+  position: relative;
+  width: 46px;
+  height: 26px;
+  flex: 0 0 auto;
+  cursor: pointer;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(226, 232, 240, 0.32);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.adm-rating-switch span {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--adm-soft-text, #94a3b8);
+  box-shadow: 0 2px 7px rgba(15, 23, 42, 0.18);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.adm-rating-switch.is-on {
+  border-color: var(--adm-primary, #0d3b45);
+  background: var(--adm-primary, #0d3b45);
+  box-shadow: 0 0 0 4px rgba(13, 59, 69, 0.10);
+}
+
+.adm-rating-switch.is-on span {
+  transform: translateX(-20px);
+  background: #fff;
+}
+
+.adm-rating-modal__field {
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.74);
+}
+
+.adm-rating-modal__field:last-child {
+  border-bottom: 0;
+}
+
+.adm-rating-modal__field label {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--adm-text, #1f2933);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.adm-rating-modal__hint {
+  margin: -2px 0 10px;
+  color: var(--adm-muted, #64748b);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.adm-rating-modal__field input,
+.adm-rating-modal__field textarea {
+  width: 100%;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--adm-text, #1f2933);
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+  transition:
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    background-color 0.16s ease;
+}
+
+.adm-rating-modal__field input {
+  height: 44px;
+  padding: 0 14px;
+}
+
+.adm-rating-modal__field textarea {
+  min-height: 92px;
+  resize: vertical;
+  padding: 13px 14px;
+  line-height: 1.8;
+}
+
+.adm-rating-modal__field input:focus,
+.adm-rating-modal__field textarea:focus {
+  border-color: rgba(13, 59, 69, 0.58);
+  box-shadow: 0 0 0 4px rgba(13, 59, 69, 0.10);
+}
+
+.adm-rating-modal__inputGroup {
+  display: flex;
+  overflow: hidden;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.adm-rating-modal__inputGroup input {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none !important;
+}
+
+.adm-rating-modal__inputGroup span {
+  display: grid;
+  min-width: 74px;
+  padding: 0 14px;
+  place-items: center;
+  border-right: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-soft, #f2f4f6);
+  color: var(--adm-muted, #64748b);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.adm-rating-modal__grid2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.74);
+}
+
+.adm-rating-modal__grid2 .adm-rating-modal__field {
+  border-bottom: 0;
+}
+
+.adm-rating-modal__grid2 .adm-rating-modal__field + .adm-rating-modal__field {
+  border-right: 1px solid rgba(226, 232, 240, 0.74);
+}
+
+.adm-rating-statuses,
+.adm-rating-channels,
+.adm-rating-params {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.adm-rating-status,
+.adm-rating-channel,
+.adm-rating-params button {
+  cursor: pointer;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--adm-text, #1f2933);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  transition:
+    transform 0.16s ease,
+    border-color 0.16s ease,
+    background-color 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.adm-rating-status,
+.adm-rating-channel {
+  min-height: 36px;
+  padding: 0 13px;
+}
+
+.adm-rating-params {
+  margin-top: 10px;
+}
+
+.adm-rating-params button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 0 12px;
+}
+
+.adm-rating-params button span {
+  direction: ltr;
+  color: var(--adm-muted, #64748b);
+  font-weight: 900;
+}
+
+.adm-rating-status:hover,
+.adm-rating-channel:hover,
+.adm-rating-params button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(13, 59, 69, 0.36);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.07);
+}
+
+.adm-rating-status.is-selected,
+.adm-rating-channel.is-selected {
+  border-color: var(--adm-primary, #0d3b45);
+  background: var(--adm-primary, #0d3b45);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(13, 59, 69, 0.14);
+}
+
+.adm-rating-channel.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.adm-rating-preview {
+  padding: 16px 18px 18px;
+}
+
+.adm-rating-preview__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: var(--adm-muted, #64748b);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.adm-rating-preview__box {
+  border: 1px solid rgba(13, 59, 69, 0.12);
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(191, 230, 216, 0.34), transparent 52%),
+    #fff;
+  padding: 16px;
+}
+
+.adm-rating-preview__box strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--adm-text, #1f2933);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.adm-rating-preview__box p {
+  margin: 0;
+  white-space: pre-wrap;
+  color: var(--adm-muted, #64748b);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.adm-rating-modal__footer {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--adm-border, #e2e8f0);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+@media (max-width: 720px) {
+  .adm-rating-modalOverlay {
+    padding: 12px;
+  }
+
+  .adm-rating-modal {
+    max-height: 94vh;
+    border-radius: 22px;
+  }
+
+  .adm-rating-modal__header {
+    padding: 18px;
+  }
+
+  .adm-rating-modal__body {
+    padding: 14px;
+  }
+
+  .adm-rating-modal__switchRow {
+    align-items: flex-start;
+  }
+
+  .adm-rating-modal__grid2 {
+    grid-template-columns: 1fr;
+  }
+
+  .adm-rating-modal__grid2 .adm-rating-modal__field + .adm-rating-modal__field {
+    border-right: 0;
+    border-top: 1px solid rgba(226, 232, 240, 0.74);
+  }
+}

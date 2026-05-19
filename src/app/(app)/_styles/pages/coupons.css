@@ -1,0 +1,595 @@
+/* FILE: apps/merchant/src/app/(app)/_styles/pages/coupons.css */
+
+/* =========================================================
+   Coupons Page
+   لا يوجد مقاس شاشة هنا
+   المقاس العام من adm-page__inner في admin-cards.css
+   لا يتم تعديل أدوات Boltify، فقط تغليفها بكلاسات الإدارة
+   ========================================================= */
+
+.adm-coupons-page {
+  color: var(--adm-text, #1f2933);
+}
+
+.adm-coupons {
+  display: grid;
+  gap: var(--adm-page-gap, 18px);
+}
+
+.adm-coupons-toolbar {
+  overflow: hidden;
+}
+
+.adm-coupons-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* =========================================================
+   States
+   ========================================================= */
+
+.adm-coupons-state-card {
+  border-radius: var(--adm-card-radius, 24px);
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+}
+
+.adm-coupons-state {
+  min-height: 92px;
+  display: grid;
+  place-items: center;
+  color: var(--adm-muted, #64748b);
+  font-size: 13px;
+  font-weight: 850;
+  text-align: center;
+}
+
+.adm-coupons-state--error {
+  color: #b42318;
+  background: #fff7f6;
+}
+
+/* =========================================================
+   Grid
+   ========================================================= */
+
+.adm-coupons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.adm-coupons-grid__item {
+  min-width: 0;
+}
+
+/* =========================================================
+   Coupon Card
+   ========================================================= */
+
+.adm-coupons-card {
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--adm-card-radius, 24px);
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+}
+
+.adm-coupons-card__top {
+  margin: 4px;
+  border-radius: 18px;
+  background: color-mix(
+    in srgb,
+    var(--adm-soft, #f2f4f6) 72%,
+    var(--adm-surface, #ffffff)
+  );
+}
+
+.adm-coupons-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.adm-coupons-card__codeWrap {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+  text-align: right;
+}
+
+.adm-coupons-card__code {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--adm-text, #1f2933);
+  font-size: 19px;
+  font-weight: 950;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adm-coupons-card__statusText {
+  color: var(--adm-muted, #64748b);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.adm-coupons-card__switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.adm-coupons-card__dates {
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.adm-coupons-card__dateRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--adm-muted, #64748b);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.adm-coupons-card__dateRow strong {
+  color: var(--adm-text, #1f2933);
+  font-size: 13px;
+  font-weight: 900;
+  text-align: left;
+  direction: ltr;
+}
+
+.adm-coupons-card__bottom {
+  padding-top: 12px;
+}
+
+.adm-coupons-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adm-coupons-actions > * {
+  padding-inline: 14px;
+  border-inline-start: 1px solid color-mix(
+    in srgb,
+    var(--adm-border, #e2e8f0) 86%,
+    transparent
+  );
+}
+
+.adm-coupons-actions > *:first-child {
+  border-inline-start: 0;
+}
+
+.adm-coupons-link-btn {
+  min-height: 34px;
+  color: var(--adm-primary, #0d3b45);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.adm-coupons-link-btn--danger {
+  color: #b42318;
+}
+
+.adm-coupons-card__note {
+  margin-top: 10px;
+  color: var(--adm-muted, #64748b);
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* =========================================================
+   Add Card
+   ========================================================= */
+
+.adm-coupons-add-card {
+  height: 100%;
+  min-height: 190px;
+  overflow: hidden;
+  border-radius: var(--adm-card-radius, 24px);
+  border: 1px dashed var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.adm-coupons-add-card:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(
+    in srgb,
+    var(--adm-primary, #0d3b45) 28%,
+    var(--adm-border, #e2e8f0)
+  );
+  background: color-mix(
+    in srgb,
+    var(--adm-mint-soft, #ecfaf5) 45%,
+    var(--adm-surface, #ffffff)
+  );
+}
+
+.adm-coupons-add-card__body {
+  height: 100%;
+  min-height: 190px;
+  display: grid;
+  place-items: center;
+}
+
+.adm-coupons-add-card__content {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  color: var(--adm-muted, #64748b);
+  text-align: center;
+}
+
+.adm-coupons-add-card__icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--adm-soft, #f2f4f6);
+  color: var(--adm-primary, #0d3b45);
+}
+
+.adm-coupons-add-card__title {
+  color: var(--adm-text, #1f2933);
+  font-size: 14px;
+  font-weight: 950;
+}
+
+/* =========================================================
+   Confirm Delete Modal
+   ========================================================= */
+
+.adm-coupons-confirm {
+  display: grid;
+  gap: 8px;
+  text-align: right;
+}
+
+.adm-coupons-confirm__title {
+  color: var(--adm-text, #1f2933);
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1.8;
+}
+
+.adm-coupons-confirm__desc {
+  color: var(--adm-muted, #64748b);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.adm-coupons-confirm__footer {
+  gap: 12px;
+}
+
+.adm-coupons-confirm__footerItem {
+  width: 100%;
+}
+
+.adm-coupons-confirm__btn {
+  width: 100%;
+}
+
+.adm-coupons-confirm__btn--danger {
+  background: #b42318 !important;
+  border-color: #b42318 !important;
+  color: #ffffff !important;
+}
+
+.adm-coupons-confirm__btn--danger:hover {
+  background: #912018 !important;
+  border-color: #912018 !important;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 1180px) {
+  .adm-coupons-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .adm-coupons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .adm-coupons-card__header {
+    flex-direction: column;
+  }
+
+  .adm-coupons-card__switch {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .adm-coupons-actions {
+    flex-wrap: wrap;
+  }
+
+  .adm-coupons-actions > * {
+    flex: 1;
+    border-inline-start: 0;
+  }
+}
+
+/* =========================================================
+   Coupon Switch Skin
+   نغير شكل السويتش داخل صفحة الكوبونات فقط
+   بدون تعديل مكتبة Boltify
+   ========================================================= */
+
+.adm-coupons-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* نحصر التأثير داخل صفحة الكوبونات فقط */
+.adm-coupons-switch :where(label, button) {
+  cursor: pointer;
+}
+
+/* Override للألوان الافتراضية قدر الإمكان بدون لمس المكتبة */
+.adm-coupons-switch :where([class*="bg-primary"], [class*="bg-green"], [class*="bg-emerald"], [class*="bg-lime"]) {
+  background-color: var(--adm-primary, #0d3b45) !important;
+}
+
+.adm-coupons-switch :where([class*="text-primary"], [class*="text-green"], [class*="text-emerald"], [class*="text-lime"]) {
+  color: var(--adm-primary, #0d3b45) !important;
+}
+
+.adm-coupons-switch :where([class*="border-primary"], [class*="border-green"], [class*="border-emerald"], [class*="border-lime"]) {
+  border-color: var(--adm-primary, #0d3b45) !important;
+}
+
+/* الحالة المفعلة */
+.adm-coupons-switch--active :where(label, button, div, span) {
+  --tw-ring-color: color-mix(
+    in srgb,
+    var(--adm-primary, #0d3b45) 18%,
+    transparent
+  ) !important;
+}
+
+/* لو السويتش مبني على input داخلي */
+.adm-coupons-switch input:checked ~ * {
+  background-color: var(--adm-primary, #0d3b45) !important;
+  border-color: var(--adm-primary, #0d3b45) !important;
+}
+
+/* لو فيه track بعد input */
+.adm-coupons-switch input:checked + * {
+  background-color: var(--adm-primary, #0d3b45) !important;
+  border-color: var(--adm-primary, #0d3b45) !important;
+}
+
+/* الحالة المعطلة */
+.adm-coupons-switch--disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+
+
+/* =========================================================
+   Coupon Switch Skin
+   يغير لون سويتش Boltify داخل الكوبونات فقط
+   بدون تعديل مكتبة Boltify
+   ========================================================= */
+
+.adm-coupons-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adm-coupons-switch :where(label, button) {
+  cursor: pointer;
+}
+
+.adm-coupons-switch :where(
+  [class*="bg-primary"],
+  [class*="bg-green"],
+  [class*="bg-emerald"],
+  [class*="bg-lime"]
+) {
+  background-color: var(--adm-primary, #0d3b45) !important;
+}
+
+.adm-coupons-switch :where(
+  [class*="text-primary"],
+  [class*="text-green"],
+  [class*="text-emerald"],
+  [class*="text-lime"]
+) {
+  color: var(--adm-primary, #0d3b45) !important;
+}
+
+.adm-coupons-switch :where(
+  [class*="border-primary"],
+  [class*="border-green"],
+  [class*="border-emerald"],
+  [class*="border-lime"]
+) {
+  border-color: var(--adm-primary, #0d3b45) !important;
+}
+
+.adm-coupons-switch input:checked ~ *,
+.adm-coupons-switch input:checked + * {
+  background-color: var(--adm-primary, #0d3b45) !important;
+  border-color: var(--adm-primary, #0d3b45) !important;
+}
+
+.adm-coupons-switch--active :where(label, button, div, span) {
+  --tw-ring-color: color-mix(
+    in srgb,
+    var(--adm-primary, #0d3b45) 18%,
+    transparent
+  ) !important;
+}
+
+.adm-coupons-switch--disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+
+/* FILE: apps/merchant/src/app/(app)/_styles/pages/coupons.css */
+
+/* =========================================================
+   Coupons Identity Fix
+   آخر الملف - لا تنقله فوق
+   ========================================================= */
+
+/* زر إضافة: خلفية بترولية + نص أبيض */
+.adm-coupons-toolbar :where(button, a):has(.adm-coupons-add-btn),
+.adm-coupons-toolbar .adm-coupons-add-btn {
+  background: var(--adm-primary, #0d3b45) !important;
+  border-color: var(--adm-primary, #0d3b45) !important;
+  color: #ffffff !important;
+}
+
+.adm-coupons-toolbar .adm-coupons-add-btn,
+.adm-coupons-toolbar .adm-coupons-add-btn * {
+  color: #ffffff !important;
+}
+
+.adm-coupons-toolbar :where(button, a):has(.adm-coupons-add-btn):hover {
+  background: var(--adm-primary-dark, #092f37) !important;
+  border-color: var(--adm-primary-dark, #092f37) !important;
+  color: #ffffff !important;
+}
+
+/* Badge بجانب زر الإضافة */
+.adm-coupons-toolbar :where([class*="badge"], .badge) {
+  background: var(--adm-soft, #f2f4f6) !important;
+  color: var(--adm-primary-dark, #092f37) !important;
+}
+
+/* =========================================================
+   Boltify Switch Skin داخل الكوبونات
+   ========================================================= */
+
+.adm-coupons-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* امسك ألوان Boltify الافتراضية: blue / primary / green */
+.adm-coupons-switch :where(
+  [class*="bg-blue"],
+  [class*="bg-sky"],
+  [class*="bg-indigo"],
+  [class*="bg-primary"],
+  [class*="bg-green"],
+  [class*="bg-emerald"],
+  [class*="bg-lime"],
+  [class*="peer-checked:bg-blue"],
+  [class*="peer-checked:bg-sky"],
+  [class*="peer-checked:bg-indigo"],
+  [class*="peer-checked:bg-primary"],
+  [class*="peer-checked:bg-green"],
+  [class*="peer-checked:bg-emerald"],
+  [class*="peer-checked:bg-lime"]
+) {
+  background-color: var(--adm-primary, #0d3b45) !important;
+}
+
+.adm-coupons-switch :where(
+  [class*="border-blue"],
+  [class*="border-sky"],
+  [class*="border-indigo"],
+  [class*="border-primary"],
+  [class*="border-green"],
+  [class*="border-emerald"],
+  [class*="border-lime"]
+) {
+  border-color: var(--adm-primary, #0d3b45) !important;
+}
+
+.adm-coupons-switch :where(
+  [class*="text-blue"],
+  [class*="text-sky"],
+  [class*="text-indigo"],
+  [class*="text-primary"],
+  [class*="text-green"],
+  [class*="text-emerald"],
+  [class*="text-lime"]
+) {
+  color: var(--adm-primary, #0d3b45) !important;
+}
+
+/* لو السويتش مبني على input */
+.adm-coupons-switch input:checked,
+.adm-coupons-switch input:checked + *,
+.adm-coupons-switch input:checked ~ * {
+  background-color: var(--adm-primary, #0d3b45) !important;
+  border-color: var(--adm-primary, #0d3b45) !important;
+}
+
+/* لو السويتش مبني على :has */
+.adm-coupons-switch:has(input:checked) :where(
+  label,
+  button,
+  [role="switch"],
+  [class*="switch"],
+  [class*="Switch"],
+  [class*="rounded-full"]
+) {
+  background-color: var(--adm-primary, #0d3b45) !important;
+  border-color: var(--adm-primary, #0d3b45) !important;
+}
+
+/* لا نلون الدائرة الداخلية للبترول */
+.adm-coupons-switch:has(input:checked) :where(
+  [class*="bg-white"],
+  [class*="translate"],
+  [class*="thumb"],
+  [class*="Thumb"]
+) {
+  background-color: #ffffff !important;
+}
+
+/* حالة غير مفعل */
+.adm-coupons-switch:not(.adm-coupons-switch--active) :where(
+  label,
+  button,
+  [role="switch"],
+  [class*="switch"],
+  [class*="Switch"],
+  [class*="rounded-full"]
+) {
+  background-color: var(--adm-soft, #f2f4f6) !important;
+  border-color: var(--adm-border, #e2e8f0) !important;
+}
+
+/* المعطل */
+.adm-coupons-switch--disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}

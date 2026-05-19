@@ -1,0 +1,22 @@
+/* FILE: apps/merchant/src/app/styles.css */
+
+/* =========================================================
+   Merchant app final safe styles
+   ---------------------------------------------------------
+   هذا الملف ينقرأ بعد globals.css و index.css
+   لذلك ممنوع وضع ألوان هوية قديمة هنا.
+   ========================================================= */
+
+html,
+body {
+  background: #fafbfc;
+}
+
+/* توحيد بسيط للسلوك العام */
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}

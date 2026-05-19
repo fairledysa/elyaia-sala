@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"],
+
+      "@/components/*": ["./src/boltify/components/*"],
+      "@/hooks/*": ["./src/boltify/hooks/*"],
+      "@/types/*": ["./src/boltify/types/*"],
+      "@/utils/*": ["./src/boltify/utils/*"],
+      "@/config/*": ["./src/boltify/config/*"],
+      "@/constants/*": ["./src/boltify/constants/*"],
+      "@/interface/*": ["./src/boltify/interface/*"],
+      "@/locales/*": ["./src/boltify/locales/*"],
+      "@/parts/*": ["./src/boltify/parts/*"],
+      "@/tailwindcss/*": ["./src/boltify/tailwindcss/*"],
+      "@/assets/*": ["./src/boltify/assets/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    "src/examples",
+    "src/examples/**/*"
+  ]
+}

@@ -1,0 +1,365 @@
+/* FILE: apps/merchant/src/app/(app)/_styles/components/admin-cards.css */
+
+/* =========================================================
+   Admin Cards System
+   كروت ومقاسات موحدة لكل صفحات لوحة الإدارة
+   Reference sizing: orders.css
+   ========================================================= */
+
+:root {
+  --adm-page-max: 1350px;
+  --adm-page-gap: 18px;
+
+  --adm-card-radius: 24px;
+  --adm-card-radius-lg: 26px;
+  --adm-card-head-h: 76px;
+  --adm-card-padding: 20px;
+
+  --adm-hero-radius: 26px;
+  --adm-hero-padding: 20px;
+}
+
+/* =========================================================
+   Page Layout
+   نفس مقاس صفحة الطلبات
+   ========================================================= */
+
+.adm-page {
+  min-height: 100vh;
+  background: transparent;
+  color: var(--adm-text, #1f2933);
+}
+
+.adm-page__inner {
+  width: min(100%, var(--adm-page-max));
+  margin-inline: auto;
+  display: grid;
+  gap: var(--adm-page-gap);
+}
+
+/* =========================================================
+   Base Card
+   ========================================================= */
+
+.adm-card {
+  border-radius: var(--adm-card-radius);
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+}
+
+.adm-card--lg {
+  border-radius: var(--adm-card-radius-lg);
+}
+
+.adm-card--flat {
+  box-shadow: none;
+}
+
+.adm-card--soft {
+  background: #fbfcfd;
+}
+
+.adm-card--mint {
+  background: var(--adm-mint-soft, #ecfaf5);
+  border-color: rgb(13 59 69 / 0.11);
+}
+
+.adm-card--gold {
+  background: var(--adm-gold-soft, #faf4e1);
+  border-color: rgb(232 214 168 / 0.7);
+}
+
+/* =========================================================
+   Card Header / Body / Footer
+   ========================================================= */
+
+.adm-card__head {
+  min-height: var(--adm-card-head-h);
+  padding: var(--adm-card-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.adm-card__head--border {
+  border-bottom: 1px solid var(--adm-border, #e2e8f0);
+}
+
+.adm-card__titleWrap {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+  text-align: right;
+}
+
+.adm-card__title {
+  margin: 0;
+  color: var(--adm-text, #1f2933);
+  font-size: 21px;
+  font-weight: 950;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.adm-card__desc {
+  margin: 0;
+  color: var(--adm-muted, #64748b);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.7;
+}
+
+.adm-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.adm-card__body {
+  padding: var(--adm-card-padding);
+}
+
+.adm-card__body--compact {
+  padding: 16px;
+}
+
+.adm-card__body--noTop {
+  padding-top: 0;
+}
+
+.adm-card__footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--adm-border, #e2e8f0);
+  background: #fbfcfd;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* =========================================================
+   Hero / Page Header
+   نفس مقاس Hero الطلبات
+   ========================================================= */
+
+.adm-hero {
+  border-radius: var(--adm-hero-radius);
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  padding: var(--adm-hero-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+}
+
+.adm-hero__main {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.adm-hero__icon {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  color: var(--adm-primary, #0d3b45);
+  background: var(--adm-mint-soft, #ecfaf5);
+  border: 1px solid rgb(13 59 69 / 0.12);
+}
+
+.adm-hero__text {
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+  text-align: right;
+}
+
+.adm-hero__title {
+  margin: 0;
+  color: var(--adm-text, #1f2933);
+  font-size: 26px;
+  font-weight: 950;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+}
+
+.adm-hero__desc {
+  margin: 0;
+  color: var(--adm-muted, #64748b);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.7;
+}
+
+.adm-hero__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   Info Blocks
+   ========================================================= */
+
+.adm-info-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.adm-info-grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.adm-info-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.adm-info-box {
+  min-height: 88px;
+  border-radius: 18px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: #fbfcfd;
+  padding: 16px;
+  display: grid;
+  gap: 8px;
+}
+
+.adm-info-box__label {
+  color: var(--adm-muted, #64748b);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.adm-info-box__value {
+  color: var(--adm-text, #1f2933);
+  font-size: 15px;
+  font-weight: 950;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   Empty / Loading / Skeleton
+   ========================================================= */
+
+.adm-empty {
+  min-height: 92px;
+  border-radius: 18px;
+  border: 1px dashed var(--adm-border, #e2e8f0);
+  background: #fbfcfd;
+  padding: 18px;
+  display: grid;
+  place-items: center;
+  color: var(--adm-muted, #64748b);
+  font-size: 13px;
+  font-weight: 850;
+  text-align: center;
+}
+
+.adm-loading-box {
+  min-height: 92px;
+  border-radius: 18px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-soft, #f2f4f6);
+  padding: 18px;
+  display: grid;
+  place-items: center;
+  color: var(--adm-muted, #64748b);
+  font-size: 13px;
+  font-weight: 850;
+  text-align: center;
+}
+
+.adm-skeleton {
+  border-radius: 16px;
+  background: var(--adm-soft, #f2f4f6);
+  animation: admPulse 1.1s ease-in-out infinite;
+}
+
+@keyframes admPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 980px) {
+  :root {
+    --adm-page-gap: 16px;
+  }
+
+  .adm-hero,
+  .adm-card__head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .adm-hero__actions,
+  .adm-card__actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .adm-info-grid--2,
+  .adm-info-grid--3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --adm-page-gap: 14px;
+    --adm-card-radius: 22px;
+    --adm-card-radius-lg: 22px;
+    --adm-card-padding: 16px;
+    --adm-hero-radius: 22px;
+    --adm-hero-padding: 16px;
+  }
+
+  .adm-card__footer {
+    padding: 14px 16px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .adm-card__title {
+    font-size: 19px;
+  }
+
+  .adm-hero__title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --adm-page-gap: 14px;
+    --adm-card-radius: 20px;
+    --adm-card-radius-lg: 20px;
+    --adm-hero-radius: 20px;
+  }
+
+  .adm-card__head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

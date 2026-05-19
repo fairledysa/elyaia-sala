@@ -1,0 +1,758 @@
+/* FILE: apps/merchant/src/app/(app)/_styles/pages/feedback.css */
+
+/* =========================================================
+   Feedback Page
+   خاص بصفحة الأسئلة والتقييمات فقط
+   لا يوجد مقاس شاشة هنا
+   المقاس العام من adm-page__inner في admin-cards.css
+   ========================================================= */
+
+/* =========================================================
+   Tabs
+   ========================================================= */
+
+.adm-feedback-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.adm-feedback-tab {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 14px;
+  background: var(--adm-surface, #ffffff);
+  color: var(--adm-text, #1f2933);
+  padding: 0 18px;
+  font-size: 13px;
+  font-weight: 850;
+  cursor: pointer;
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.adm-feedback-tab:hover {
+  border-color: color-mix(in srgb, var(--adm-primary, #0d3b45) 22%, var(--adm-border, #e2e8f0));
+  background: var(--adm-soft, #f2f4f6);
+}
+
+.adm-feedback-tab--active {
+  border-color: var(--adm-primary, #0d3b45);
+  background: var(--adm-primary, #0d3b45);
+  color: var(--adm-surface, #ffffff);
+}
+
+/* =========================================================
+   Main Card / Header Pills
+   ========================================================= */
+
+.adm-feedback-card {
+  overflow: hidden;
+}
+
+.adm-feedback-pill {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--adm-soft, #f2f4f6);
+  color: var(--adm-muted, #64748b);
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   Loading
+   ========================================================= */
+
+.adm-feedback-loading {
+  display: grid;
+  gap: 14px;
+}
+
+.adm-feedback-skeleton-card {
+  border-radius: 20px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.adm-feedback-skeleton-line {
+  height: 18px;
+  width: 55%;
+}
+
+.adm-feedback-skeleton-line--sm {
+  width: 28%;
+}
+
+.adm-feedback-skeleton-box {
+  height: 92px;
+}
+
+.adm-feedback-skeleton-actions {
+  height: 38px;
+  width: 220px;
+}
+
+/* =========================================================
+   Feedback List
+   ========================================================= */
+
+.adm-feedback-list {
+  display: grid;
+  gap: 18px;
+}
+
+/* =========================================================
+   Feedback Card
+   ========================================================= */
+
+.adm-feedback-item {
+  overflow: hidden;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 20px;
+  background: var(--adm-surface, #ffffff);
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+}
+
+.adm-feedback-item img {
+  display: block;
+  max-width: 100%;
+}
+
+.adm-feedback-item__head {
+  min-height: 68px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--adm-border, #e2e8f0);
+  background: color-mix(in srgb, var(--adm-soft, #f2f4f6) 48%, var(--adm-surface, #ffffff));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.adm-feedback-item__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.adm-feedback-badge {
+  min-height: 26px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--adm-soft, #f2f4f6);
+  color: var(--adm-muted, #64748b);
+  padding: 0 10px;
+  font-size: 11px;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.adm-feedback-date {
+  color: var(--adm-soft-text, #94a3b8);
+  font-size: 12px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.adm-feedback-subject {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.adm-feedback-subject__text {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+  text-align: right;
+}
+
+.adm-feedback-subject__title {
+  max-width: 360px;
+  margin: 0;
+  overflow: hidden;
+  color: var(--adm-text, #1f2933);
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adm-feedback-subject__product {
+  max-width: 360px;
+  overflow: hidden;
+  color: var(--adm-primary, #0d3b45);
+  font-size: 12px;
+  font-weight: 850;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adm-feedback-subject__order {
+  color: var(--adm-soft-text, #94a3b8);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.adm-feedback-subject__image {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  max-width: 42px;
+  flex: 0 0 42px;
+  overflow: hidden;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 14px;
+  background: var(--adm-soft, #f2f4f6);
+  display: grid;
+  place-items: center;
+}
+
+.adm-feedback-subject__img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.adm-feedback-subject__icon {
+  color: var(--adm-primary, #0d3b45);
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.adm-feedback-item__body {
+  padding: 16px;
+}
+
+.adm-feedback-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.adm-feedback-delete {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  flex: 0 0 38px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 14px;
+  background: var(--adm-surface, #ffffff);
+  color: var(--adm-muted, #64748b);
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.adm-feedback-delete:hover {
+  border-color: color-mix(in srgb, var(--adm-primary, #0d3b45) 18%, var(--adm-border, #e2e8f0));
+  background: var(--adm-gold-soft, #faf4e1);
+  color: var(--adm-primary-dark, #092f37);
+}
+
+.adm-feedback-delete:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.adm-feedback-message {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 10px;
+}
+
+.adm-feedback-customer {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.adm-feedback-avatar {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  max-width: 38px;
+  flex: 0 0 38px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--adm-soft, #f2f4f6);
+  color: var(--adm-primary, #0d3b45);
+  display: grid;
+  place-items: center;
+}
+
+.adm-feedback-avatar__img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.adm-feedback-avatar__fallback {
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.adm-feedback-customer__info {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+  text-align: right;
+}
+
+.adm-feedback-customer__name {
+  max-width: 360px;
+  overflow: hidden;
+  color: var(--adm-text, #1f2933);
+  font-size: 14px;
+  font-weight: 900;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adm-feedback-rating {
+  color: color-mix(in srgb, var(--adm-gold, #e8d6a8) 72%, #8a6400);
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.adm-feedback-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--adm-text, #1f2933);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.85;
+  text-align: right;
+}
+
+.adm-feedback-reply {
+  border: 1px solid color-mix(in srgb, var(--adm-primary, #0d3b45) 10%, var(--adm-border, #e2e8f0));
+  border-radius: 16px;
+  background: var(--adm-mint-soft, #ecfaf5);
+  padding: 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.adm-feedback-reply__label {
+  color: var(--adm-primary, #0d3b45);
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.adm-feedback-reply__text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--adm-text, #1f2933);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.adm-feedback-actions {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--adm-border, #e2e8f0);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.adm-feedback-action-btn {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 12px;
+  background: var(--adm-surface, #ffffff);
+  color: var(--adm-text, #1f2933);
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 850;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.adm-feedback-action-btn:hover {
+  background: var(--adm-soft, #f2f4f6);
+}
+
+.adm-feedback-action-btn--primary {
+  border-color: var(--adm-primary, #0d3b45);
+  background: var(--adm-primary, #0d3b45);
+  color: var(--adm-surface, #ffffff);
+}
+
+.adm-feedback-action-btn--primary:hover {
+  background: var(--adm-primary-dark, #092f37);
+}
+
+.adm-feedback-action-btn--danger {
+  border-color: color-mix(in srgb, var(--adm-primary, #0d3b45) 18%, var(--adm-border, #e2e8f0));
+  color: var(--adm-primary-dark, #092f37);
+}
+
+.adm-feedback-action-btn--danger:hover {
+  background: var(--adm-gold-soft, #faf4e1);
+}
+
+.adm-feedback-action-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.adm-feedback-reply-form {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--adm-border, #e2e8f0);
+  display: grid;
+  gap: 12px;
+}
+
+.adm-feedback-reply-form__textarea {
+  width: 100%;
+  min-height: 92px;
+  resize: vertical;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 14px;
+  background: var(--adm-surface, #ffffff);
+  color: var(--adm-text, #1f2933);
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.8;
+  outline: none;
+  text-align: right;
+}
+
+.adm-feedback-reply-form__textarea:focus {
+  border-color: color-mix(in srgb, var(--adm-primary, #0d3b45) 28%, var(--adm-border, #e2e8f0));
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--adm-primary, #0d3b45) 8%, transparent);
+}
+
+.adm-feedback-reply-form__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   Pagination
+   ========================================================= */
+
+.adm-feedback-pagination {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adm-feedback-pagination__inner {
+  display: inline-flex;
+  overflow: hidden;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 16px;
+  background: var(--adm-surface, #ffffff);
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+}
+
+.adm-feedback-page-group {
+  display: flex;
+}
+
+.adm-feedback-page-btn,
+.adm-feedback-page-gap {
+  min-width: 44px;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-inline-start: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  color: var(--adm-text, #1f2933);
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.adm-feedback-page-btn {
+  cursor: pointer;
+}
+
+.adm-feedback-page-btn:hover {
+  background: var(--adm-soft, #f2f4f6);
+}
+
+.adm-feedback-page-btn--active {
+  background: var(--adm-primary, #0d3b45);
+  color: var(--adm-surface, #ffffff);
+}
+
+.adm-feedback-page-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.adm-feedback-page-gap {
+  color: var(--adm-soft-text, #94a3b8);
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 720px) {
+  .adm-feedback-item__head {
+    align-items: flex-start;
+    flex-direction: column-reverse;
+  }
+
+  .adm-feedback-subject {
+    width: 100%;
+  }
+
+  .adm-feedback-subject__text,
+  .adm-feedback-subject__title,
+  .adm-feedback-subject__product {
+    max-width: none;
+  }
+
+  .adm-feedback-content {
+    flex-direction: column-reverse;
+  }
+
+  .adm-feedback-delete {
+    align-self: flex-start;
+  }
+
+  .adm-feedback-actions {
+    justify-content: stretch;
+  }
+
+  .adm-feedback-action-btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .adm-feedback-tabs {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .adm-feedback-tab {
+    flex: 1;
+  }
+
+  .adm-feedback-pill {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .adm-feedback-pagination {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+}
+
+
+
+
+/* FILE: apps/merchant/src/app/(app)/_styles/pages/feedback.css */
+
+/* =========================================================
+   Emergency guard
+   يمنع أي صورة داخل قائمة التقييمات من الانفجار حتى لو بقي كود قديم
+   ========================================================= */
+
+.adm-feedback-list img {
+  width: 42px !important;
+  height: 42px !important;
+  max-width: 42px !important;
+  max-height: 42px !important;
+  object-fit: cover !important;
+  border-radius: 14px;
+}
+
+.adm-feedback-list > * {
+  overflow: hidden;
+}
+
+
+
+
+
+
+/* =========================================================
+   Feedback support contact + review media
+   ========================================================= */
+
+.adm-feedback-item--support {
+  border-color: color-mix(in srgb, var(--adm-gold, #e8d6a8) 54%, var(--adm-border, #e2e8f0));
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--adm-gold-soft, #faf4e1) 42%, #ffffff) 0%,
+      #ffffff 42%
+    );
+}
+
+.adm-feedback-badge--support {
+  background: var(--adm-gold-soft, #faf4e1);
+  color: var(--adm-primary-dark, #092f37);
+  border: 1px solid color-mix(in srgb, var(--adm-gold, #e8d6a8) 72%, var(--adm-border, #e2e8f0));
+}
+
+.adm-feedback-support-note {
+  border: 1px solid color-mix(in srgb, var(--adm-gold, #e8d6a8) 70%, var(--adm-border, #e2e8f0));
+  border-radius: 16px;
+  background: var(--adm-gold-soft, #faf4e1);
+  padding: 12px 14px;
+  display: grid;
+  gap: 5px;
+  color: var(--adm-primary-dark, #092f37);
+  text-align: right;
+}
+
+.adm-feedback-support-note strong {
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.adm-feedback-support-note span {
+  color: var(--adm-muted, #64748b);
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.8;
+}
+
+.adm-feedback-media {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.adm-feedback-media__item {
+  width: 84px;
+  height: 84px;
+  min-width: 84px;
+  max-width: 84px;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 18px;
+  background: var(--adm-soft, #f2f4f6);
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.adm-feedback-media__item:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--adm-primary, #0d3b45) 26%, var(--adm-border, #e2e8f0));
+  box-shadow: 0 12px 24px rgb(15 23 42 / 0.10);
+}
+
+.adm-feedback-media__img {
+  width: 84px !important;
+  height: 84px !important;
+  max-width: 84px !important;
+  max-height: 84px !important;
+  object-fit: cover !important;
+  border-radius: 0 !important;
+  display: block;
+}
+
+.adm-feedback-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  background: rgb(15 23 42 / 0.72);
+  backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.adm-feedback-lightbox__panel {
+  position: relative;
+  width: min(92vw, 920px);
+  height: min(86vh, 760px);
+  border-radius: 28px;
+  background: #0f172a;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  box-shadow: 0 34px 90px rgb(0 0 0 / 0.34);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.adm-feedback-lightbox__close {
+  position: absolute;
+  top: 16px;
+  inset-inline-start: 16px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgb(255 255 255 / 0.16);
+  border-radius: 14px;
+  background: rgb(255 255 255 / 0.94);
+  color: #111827;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.adm-feedback-lightbox__img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  display: block;
+  background: #0f172a;
+}

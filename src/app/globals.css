@@ -1,0 +1,343 @@
+/* FILE: apps/merchant/src/app/globals.css */
+
+/* ============================
+   Fonts (Local) — Lusail
+   Place files in:
+   apps/merchant/public/fonts/
+   - Lusail-Regular.woff2
+   - Lusail-Bold.woff2
+============================ */
+@font-face {
+  font-family: "Lusail";
+  src: url("/fonts/Lusail-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lusail";
+  src: url("/fonts/Lusail-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================
+   Third-party CSS
+============================ */
+@import "react-date-range/dist/styles.css";
+@import "react-date-range/dist/theme/default.css";
+@import "rc-tree/assets/index.css";
+
+/* Tailwind v4 */
+@import "tailwindcss";
+
+/* Tailwind plugins / variants */
+@plugin "@tailwindcss/forms";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================
+   Theme tokens
+============================ */
+@theme {
+  --font-sans: "Lusail", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Brand / Petroleum */
+  --color-primary-50: #eef8f7;
+  --color-primary-100: #d9efec;
+  --color-primary-200: #b7ded8;
+  --color-primary-300: #86c5bb;
+  --color-primary-400: #4f9f92;
+  --color-primary-500: #0d3b45;
+  --color-primary-600: #0b3540;
+  --color-primary-700: #092f37;
+  --color-primary-800: #082832;
+  --color-primary-900: #062129;
+  --color-primary-950: #031317;
+
+  /* Gold / Sand */
+  --color-secondary-50: #fdfbf4;
+  --color-secondary-100: #faf4e1;
+  --color-secondary-200: #f3e7c1;
+  --color-secondary-300: #e8d6a8;
+  --color-secondary-400: #d8be78;
+  --color-secondary-500: #c6a456;
+  --color-secondary-600: #a9823e;
+  --color-secondary-700: #8a6a2e;
+  --color-secondary-800: #684f24;
+  --color-secondary-900: #4c391b;
+  --color-secondary-950: #2b1f0f;
+}
+
+/* ============================
+   Base styles
+============================ */
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-zinc-200, currentColor);
+  }
+}
+
+@utility dark {
+  @layer responsive {
+    &[os='Windows']:hover::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+@utility no-scrollbar {
+  @layer responsive {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@utility container {
+  @apply max-w-full sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] 2xl:max-w-[1536px];
+}
+
+@layer base {
+  html,
+  body {
+    @apply flex h-full flex-col scroll-smooth bg-zinc-100 text-zinc-800 dark:bg-zinc-950 dark:text-zinc-200;
+  }
+
+  html.dark {
+    @apply bg-zinc-950;
+  }
+
+  #root {
+    @apply flex grow flex-col;
+  }
+
+  code {
+    @apply text-primary-500;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  }
+
+  h1,
+  .h1 {
+    @apply text-4xl text-black dark:text-white;
+  }
+
+  h2,
+  .h2 {
+    @apply text-3xl text-black dark:text-white;
+  }
+
+  h3,
+  .h3 {
+    @apply text-2xl text-black dark:text-white;
+  }
+
+  h4,
+  .h4 {
+    @apply text-xl text-black dark:text-white;
+  }
+
+  h5,
+  .h5 {
+    @apply text-lg text-black dark:text-white;
+  }
+
+  h6,
+  .h6 {
+    @apply text-base text-black dark:text-white;
+  }
+
+  a {
+    @apply transition-opacity duration-300 ease-in-out;
+  }
+
+  a:hover {
+    @apply opacity-75;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+}
+
+@layer utilities {
+  @layer responsive {
+    [os='Windows']::-webkit-scrollbar {
+      width: 0.5rem;
+      height: 0.5rem;
+    }
+
+    [os='Windows']::-webkit-scrollbar-corner {
+      display: none;
+    }
+
+    [os='Windows']::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0);
+      border-radius: 1rem;
+    }
+
+    [os='Windows']::-webkit-scrollbar-track {
+      border-radius: 1rem;
+      box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0);
+    }
+
+    [os='Windows']:hover::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+.Toastify__toast {
+  @apply border border-zinc-500/25;
+}
+
+.Toastify__close-button {
+  @apply end-4 top-4;
+}
+
+.Toastify__close-button > svg {
+  @apply fill-zinc-500 stroke-zinc-950 stroke-1;
+}
+
+:root {
+  --toastify-toast-padding: 1rem !important;
+  --toastify-toast-min-height: 1.5rem !important;
+}
+
+/* ============================
+   rc-tree
+============================ */
+
+.rc-tree .rc-tree-treenode span.rc-tree-switcher.rc-tree-switcher_open {
+  @apply bg-none bg-cover bg-center before:size-2 before:content-[url("/boltify/required/tree/minus.svg")];
+}
+
+.rc-tree .rc-tree-treenode span.rc-tree-switcher.rc-tree-switcher_close {
+  @apply bg-none bg-cover bg-center before:size-2 before:content-[url("/boltify/required/tree/plus.svg")];
+}
+
+.rc-tree .rc-tree-treenode span.rc-tree-checkbox,
+.rc-tree .rc-tree-treenode span.rc-tree-iconEle {
+  @apply bg-none!;
+}
+
+.rc-tree .rc-tree-treenode span.rc-tree-checkbox {
+  @apply bg-none bg-cover bg-center before:size-2 before:content-[url("/boltify/required/tree/check-uncheck.svg")];
+}
+
+.rc-tree .rc-tree-treenode span.rc-tree-checkbox-checked {
+  @apply bg-none bg-cover bg-center before:size-2 before:content-[url("/boltify/required/tree/check-checked.svg")];
+}
+
+.rc-tree .rc-tree-treenode span.rc-tree-checkbox-indeterminate {
+  @apply bg-none bg-cover bg-center before:size-2 before:content-[url("/boltify/required/tree/check-inter.svg")];
+}
+
+.rc-tree-icon__close {
+  @apply bg-none bg-cover bg-center before:size-2 before:content-[url("/boltify/required/tree/folder-close.svg")];
+}
+
+.rc-tree-icon__open {
+  @apply bg-none bg-cover bg-center before:size-2 before:content-[url("/boltify/required/tree/folder-open.svg")];
+}
+
+.rc-tree-icon__docu {
+  @apply bg-none bg-cover bg-center before:size-2 before:content-[url("/boltify/required/tree/file.svg")];
+}
+
+.rc-tree-checkbox.rc-tree-checkbox-disabled,
+.rc-tree .rc-tree-treenode span.rc-tree-checkbox-disabled + * {
+  @apply opacity-50;
+}
+
+.rc-tree .rc-tree-treenode .rc-tree-node-content-wrapper {
+  @apply ps-2!;
+}
+
+.rc-tree-node-selected {
+  @apply rounded-md! bg-secondary-500/25! px-2!;
+}
+
+/* ============================
+   react-date-range
+============================ */
+
+.rdrCalendarWrapper,
+.rdrDefinedRangesWrapper,
+.rdrStaticRange,
+.rdrDateDisplayWrapper {
+  @apply border-zinc-300/25 bg-transparent dark:border-zinc-800/50;
+}
+
+.rdrDayPassive .rdrDayNumber span {
+  @apply text-zinc-500/50;
+}
+
+.rdrDayNumber span {
+  @apply text-zinc-800 dark:text-zinc-200;
+}
+
+.rdrDefinedRangesWrapper {
+  @apply border-zinc-300/25 dark:border-zinc-800/50;
+}
+
+.rdrNextPrevButton {
+  @apply bg-transparent hover:bg-zinc-100 hover:dark:bg-zinc-950;
+}
+
+.rdrPprevButton i {
+  @apply border-t-transparent border-r-zinc-800 border-b-transparent border-l-transparent dark:border-r-zinc-200;
+}
+
+.rdrNextButton i {
+  @apply border-t-transparent border-r-transparent border-b-transparent border-l-zinc-800 dark:border-l-zinc-200;
+}
+
+.rdrMonthAndYearPickers select:hover {
+  @apply bg-zinc-100 dark:bg-zinc-950;
+}
+
+.rdrMonthAndYearPickers select {
+  @apply bg-[url('/boltify/required/chevron-down.svg')] bg-[length:1.2rem] bg-no-repeat text-zinc-800 dark:bg-[url('/boltify/required/dark/chevron-down.svg')] dark:text-zinc-200;
+}
+
+.rdrStaticRange:hover .rdrStaticRangeLabel,
+.rdrStaticRange:focus .rdrStaticRangeLabel {
+  @apply bg-zinc-100 dark:bg-zinc-950;
+}
+
+.rdrInputRangeInput {
+  @apply appearance-none rounded-lg border-2 border-zinc-100 bg-zinc-100 px-1.5 py-1.5 text-base text-black outline-0 transition-all duration-300 ease-in-out hover:border-primary-500 focus:border-zinc-300 focus:bg-transparent dark:border-zinc-800 dark:bg-zinc-800 dark:text-white dark:hover:border-primary-500 dark:focus:border-zinc-800 dark:focus:bg-transparent;
+}
+
+.rdrDateInput.rdrDateDisplayItem {
+  @apply appearance-none rounded-lg border-2 bg-zinc-100 text-base shadow-none outline-0 transition-all duration-300 ease-in-out focus:bg-transparent dark:bg-zinc-800 dark:focus:bg-transparent;
+}
+
+.rdrDateInput.rdrDateDisplayItem.rdrDateDisplayItemActive {
+  @apply bg-transparent dark:bg-transparent;
+}

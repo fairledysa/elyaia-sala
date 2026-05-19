@@ -1,0 +1,50 @@
+/* FILE: apps/merchant/src/app/(app)/_styles/foundation/admin.tokens.css */
+
+/* =========================================================
+   Admin Foundation Tokens
+   هوية الإدارة الرسمية
+   ========================================================= */
+
+:root {
+  --adm-primary: #0d3b45;
+  --adm-primary-dark: #092f37;
+  --adm-primary-deep: #031317;
+
+  --adm-mint: #bfe6d8;
+  --adm-mint-soft: #ecfaf5;
+
+  --adm-gold: #e8d6a8;
+  --adm-gold-soft: #faf4e1;
+
+  --adm-bg: #fafbfc;
+  --adm-surface: #ffffff;
+  --adm-soft: #f2f4f6;
+  --adm-border: #e2e8f0;
+
+  --adm-text: #1f2933;
+  --adm-muted: #64748b;
+  --adm-soft-text: #94a3b8;
+
+  --adm-danger: #dc2626;
+  --adm-danger-soft: #fef2f2;
+  --adm-danger-border: #fecaca;
+
+  --adm-success: #0d3b45;
+  --adm-success-soft: #ecfaf5;
+  --adm-success-border: rgb(13 59 69 / 0.18);
+
+  --adm-sidebar-w: 292px;
+  --adm-header-h: 66px;
+
+  --adm-radius-sm: 10px;
+  --adm-radius-md: 14px;
+  --adm-radius-lg: 18px;
+  --adm-radius-xl: 22px;
+  --adm-radius-2xl: 24px;
+  --adm-radius-3xl: 28px;
+
+  --adm-shadow-sm: 0 1px 2px rgb(15 23 42 / 0.05);
+  --adm-shadow-md: 0 12px 36px rgb(15 23 42 / 0.08);
+  --adm-shadow-lg: 0 18px 60px rgb(15 23 42 / 0.14);
+  --adm-shadow-xl: 0 30px 90px rgb(15 23 42 / 0.24);
+}

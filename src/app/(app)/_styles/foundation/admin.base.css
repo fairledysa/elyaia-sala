@@ -1,0 +1,37 @@
+/* FILE: apps/merchant/src/app/(app)/_styles/foundation/admin.base.css */
+
+/* =========================================================
+   Admin Foundation Base
+   قواعد عامة للإدارة
+   ========================================================= */
+
+html,
+body {
+  background: var(--adm-bg) !important;
+  color: var(--adm-text);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--adm-mint, #bfe6d8);
+  color: var(--adm-primary-dark, #092f37);
+}
+
+:focus-visible {
+  outline: 3px solid rgb(13 59 69 / 0.18);
+  outline-offset: 2px;
+}

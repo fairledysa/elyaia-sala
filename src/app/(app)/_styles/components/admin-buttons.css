@@ -1,0 +1,595 @@
+/* FILE: apps/merchant/src/app/(app)/_styles/components/admin-buttons.css */
+
+/* =========================================================
+   Admin Buttons - Unified System
+   يعتمد على:
+   apps/merchant/src/app/(app)/_styles/foundation/admin.tokens.css
+
+   القاعدة:
+   - primary   = الإجراء الأساسي: حفظ / تفعيل / تسعيرة / إدارة
+   - secondary = إجراء محايد: تعديل / تعطيل / رجوع / إلغاء
+   - soft      = إجراء هادئ بخلفية mint
+   - gold      = تنبيه هادئ / قيد التنفيذ
+   - danger    = حذف فقط
+   - ghost     = زر شفاف
+   ========================================================= */
+
+.adm-btn {
+  min-height: 40px;
+  border-radius: var(--adm-radius-md, 14px);
+  border: 1px solid transparent;
+  padding: 0 16px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background: transparent;
+  color: var(--adm-text, #1f2933);
+
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+  user-select: none;
+  box-shadow: none;
+
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease,
+    opacity 150ms ease;
+}
+
+.adm-btn:hover {
+  transform: translateY(-1px);
+}
+
+.adm-btn:active {
+  transform: translateY(0);
+}
+
+.adm-btn:disabled,
+.adm-btn[disabled],
+.adm-btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+  box-shadow: none;
+}
+
+.adm-btn svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+/* =========================================================
+   Sizes
+   ========================================================= */
+
+.adm-btn--sm {
+  min-height: 36px;
+  border-radius: var(--adm-radius-md, 14px);
+  padding-inline: 13px;
+  font-size: 12px;
+}
+
+.adm-btn--md {
+  min-height: 40px;
+  border-radius: var(--adm-radius-md, 14px);
+  padding-inline: 16px;
+  font-size: 13px;
+}
+
+.adm-btn--lg {
+  min-height: 48px;
+  border-radius: var(--adm-radius-lg, 18px);
+  padding-inline: 24px;
+  font-size: 14px;
+}
+
+.adm-btn--pill {
+  border-radius: 999px;
+}
+
+.adm-btn--block {
+  width: 100%;
+}
+
+/* =========================================================
+   Primary
+   الإجراء الأساسي: حفظ / تفعيل / تسعيرة / إدارة
+   ========================================================= */
+
+.adm-btn--primary {
+  border-color: var(--adm-primary, #0d3b45);
+  background: var(--adm-primary, #0d3b45);
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgb(13 59 69 / 0.16);
+}
+
+.adm-btn--primary:hover {
+  border-color: var(--adm-primary-dark, #092f37);
+  background: var(--adm-primary-dark, #092f37);
+  color: #ffffff;
+  box-shadow: 0 12px 26px rgb(13 59 69 / 0.2);
+}
+
+.adm-btn--primary *,
+.adm-btn--primary:hover * {
+  color: #ffffff;
+}
+
+/* =========================================================
+   Secondary / Outline
+   إجراء محايد: تعديل الاسم / تعطيل / رجوع / إلغاء
+
+   ملاحظة:
+   adm-btn--outline متروك كتوافق مع الصفحات القديمة.
+   الجديد استخدم adm-btn--secondary.
+   ========================================================= */
+
+.adm-btn--secondary,
+.adm-btn--outline {
+  border-color: var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  color: var(--adm-text, #1f2933);
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+}
+
+.adm-btn--secondary:hover,
+.adm-btn--outline:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--adm-primary, #0d3b45) 18%,
+    var(--adm-border, #e2e8f0)
+  );
+  background: var(--adm-soft, #f2f4f6);
+  color: var(--adm-primary, #0d3b45);
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+}
+
+/* =========================================================
+   Mint
+   زر هادئ قديم من الهوية
+   ========================================================= */
+
+.adm-btn--mint {
+  border-color: color-mix(
+    in srgb,
+    var(--adm-primary, #0d3b45) 16%,
+    var(--adm-border, #e2e8f0)
+  );
+  background: var(--adm-mint-soft, #ecfaf5);
+  color: var(--adm-primary, #0d3b45);
+}
+
+.adm-btn--mint:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--adm-primary, #0d3b45) 24%,
+    var(--adm-border, #e2e8f0)
+  );
+  background: color-mix(
+    in srgb,
+    var(--adm-mint, #bfe6d8) 32%,
+    var(--adm-surface, #ffffff) 68%
+  );
+  color: var(--adm-primary-dark, #092f37);
+}
+
+/* =========================================================
+   Soft
+   زر ناعم بخلفية mint من الهوية
+   ========================================================= */
+
+.adm-btn--soft {
+  border-color: color-mix(
+    in srgb,
+    var(--adm-primary, #0d3b45) 14%,
+    var(--adm-border, #e2e8f0)
+  );
+  background: var(--adm-mint-soft, #ecfaf5);
+  color: var(--adm-primary, #0d3b45);
+}
+
+.adm-btn--soft:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--adm-primary, #0d3b45) 24%,
+    var(--adm-border, #e2e8f0)
+  );
+  background: color-mix(
+    in srgb,
+    var(--adm-mint-soft, #ecfaf5) 72%,
+    var(--adm-surface, #ffffff) 28%
+  );
+  color: var(--adm-primary-dark, #092f37);
+}
+
+/* =========================================================
+   Gold
+   تنبيه هادئ / قيد التنفيذ / حالة انتظار
+   ========================================================= */
+
+.adm-btn--gold {
+  border-color: color-mix(
+    in srgb,
+    var(--adm-gold, #e8d6a8) 70%,
+    var(--adm-border, #e2e8f0)
+  );
+  background: var(--adm-gold-soft, #faf4e1);
+  color: var(--adm-primary-dark, #092f37);
+}
+
+.adm-btn--gold:hover {
+  border-color: var(--adm-gold, #e8d6a8);
+  background: color-mix(
+    in srgb,
+    var(--adm-gold-soft, #faf4e1) 72%,
+    var(--adm-surface, #ffffff) 28%
+  );
+  color: var(--adm-primary-deep, #031317);
+}
+
+/* =========================================================
+   Danger
+   حذف فقط
+   ========================================================= */
+
+.adm-btn--danger {
+  border-color: var(--adm-danger-border, #fecaca);
+  background: var(--adm-danger-soft, #fef2f2);
+  color: var(--adm-danger, #dc2626);
+  box-shadow: none;
+}
+
+.adm-btn--danger:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--adm-danger, #dc2626) 35%,
+    var(--adm-danger-border, #fecaca)
+  );
+  background: var(--adm-danger-soft, #fef2f2);
+  color: #b91c1c;
+  box-shadow: none;
+}
+
+/* =========================================================
+   Ghost
+   زر شفاف
+   ========================================================= */
+
+.adm-btn--ghost {
+  border-color: transparent;
+  background: transparent;
+  color: var(--adm-muted, #64748b);
+  box-shadow: none;
+}
+
+.adm-btn--ghost:hover {
+  border-color: transparent;
+  background: var(--adm-soft, #f2f4f6);
+  color: var(--adm-text, #1f2933);
+  box-shadow: none;
+}
+
+/* =========================================================
+   Icon-only Button
+   ========================================================= */
+
+.adm-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--adm-radius-md, 14px);
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  color: var(--adm-muted, #64748b);
+
+  display: inline-grid;
+  place-items: center;
+
+  cursor: pointer;
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.adm-icon-btn:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--adm-primary, #0d3b45) 16%,
+    var(--adm-border, #e2e8f0)
+  );
+  background: var(--adm-mint-soft, #ecfaf5);
+  color: var(--adm-primary, #0d3b45);
+  transform: translateY(-1px);
+}
+
+.adm-icon-btn:active {
+  transform: translateY(0);
+}
+
+.adm-icon-btn:disabled,
+.adm-icon-btn[disabled],
+.adm-icon-btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+  box-shadow: none;
+}
+
+.adm-icon-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Icon danger */
+
+.adm-icon-btn--danger {
+  border-color: var(--adm-danger-border, #fecaca);
+  background: var(--adm-danger-soft, #fef2f2);
+  color: var(--adm-danger, #dc2626);
+}
+
+.adm-icon-btn--danger:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--adm-danger, #dc2626) 35%,
+    var(--adm-danger-border, #fecaca)
+  );
+  background: var(--adm-danger-soft, #fef2f2);
+  color: #b91c1c;
+}
+
+/* =========================================================
+   Page Bottom Actions
+   ========================================================= */
+
+.adm-page-actions {
+  padding-bottom: 16px;
+}
+
+.adm-page-actions__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.adm-page-actions__nav {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.adm-page-actions__btn {
+  min-width: 170px;
+}
+
+.adm-page-actions__btn--wide {
+  min-width: 190px;
+}
+
+/* =========================================================
+   Toast
+   ========================================================= */
+
+.adm-toast {
+  position: fixed;
+  inset-block-start: 24px;
+  inset-inline-start: 50%;
+  z-index: 120;
+  width: min(100% - 32px, 440px);
+  transform: translateX(-50%);
+}
+
+.adm-toast__card {
+  border-radius: var(--adm-radius-lg, 18px);
+  border: 1px solid var(--adm-border, #e2e8f0);
+  background: var(--adm-surface, #ffffff);
+  padding: 14px 15px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  box-shadow: 0 18px 60px rgb(15 23 42 / 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.adm-toast__card--success {
+  border-color: var(--adm-success-border, rgb(13 59 69 / 0.18));
+  background: var(--adm-success-soft, #ecfaf5);
+  color: var(--adm-primary, #0d3b45);
+}
+
+.adm-toast__card--error {
+  border-color: var(--adm-danger-border, #fecaca);
+  background: var(--adm-danger-soft, #fef2f2);
+  color: #b91c1c;
+}
+
+.adm-toast__icon {
+  margin-top: 2px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+.adm-toast__content {
+  min-width: 0;
+  flex: 1;
+  text-align: right;
+}
+
+.adm-toast__title {
+  font-size: 13px;
+  font-weight: 950;
+  line-height: 1.4;
+}
+
+.adm-toast__message {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.7;
+}
+
+.adm-toast__close {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: currentColor;
+
+  display: grid;
+  place-items: center;
+
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.adm-toast__close:hover {
+  background: rgb(15 23 42 / 0.06);
+  opacity: 1;
+}
+
+/* =========================================================
+   Loading
+   ========================================================= */
+
+.adm-spin {
+  animation: admSpin 850ms linear infinite;
+}
+
+@keyframes admSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .adm-page-actions__nav {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .adm-page-actions__row {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .adm-page-actions__btn,
+  .adm-page-actions__btn--wide {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+
+
+/* FILE: apps/merchant/src/app/(app)/_styles/components/admin-buttons.css */
+
+/* =========================================================
+   Admin Buttons - Primary Text Fix
+   يحل مشكلة ظهور نص الزر البترولي بالأسود
+   بدون تعديل أدوات Boltify
+   ========================================================= */
+
+/* زرنا الموحد */
+.adm-btn--primary,
+.adm-btn--primary:hover,
+.adm-btn--primary:focus,
+.adm-btn--primary:active {
+  background: var(--adm-primary, #0d3b45) !important;
+  border-color: var(--adm-primary, #0d3b45) !important;
+  color: #ffffff !important;
+}
+
+.adm-btn--primary:hover {
+  background: var(--adm-primary-dark, #092f37) !important;
+  border-color: var(--adm-primary-dark, #092f37) !important;
+}
+
+/* أي نص/أيقونة داخل الزر الأساسي */
+.adm-btn--primary *,
+.adm-btn--primary svg,
+.adm-btn--primary span {
+  color: #ffffff !important;
+  stroke: currentColor !important;
+}
+
+/* Alias لأن بعض الصفحات تستخدم secondary */
+.adm-btn--secondary {
+  background: var(--adm-surface, #ffffff);
+  border-color: var(--adm-border, #e2e8f0);
+  color: var(--adm-text, #1f2933);
+  box-shadow: var(--adm-shadow-sm, 0 1px 2px rgb(15 23 42 / 0.05));
+}
+
+.adm-btn--secondary:hover {
+  background: var(--adm-soft, #f2f4f6);
+  border-color: rgb(13 59 69 / 0.16);
+  color: var(--adm-primary, #0d3b45);
+}
+
+/* أزرار Boltify داخل صفحات الإدارة إذا أخذت خلفية Primary */
+.adm-page__inner :where(button, a)[class*="bg-primary"],
+.adm-page__inner :where(button, a)[class*="!bg-primary"],
+.adm-page__inner :where(button, a)[class*="bg-[color:var(--adm-primary"],
+.adm-page__inner :where(button, a)[class*="background:var(--adm-primary"] {
+  color: #ffffff !important;
+}
+
+.adm-page__inner :where(button, a)[class*="bg-primary"] *,
+.adm-page__inner :where(button, a)[class*="!bg-primary"] *,
+.adm-page__inner :where(button, a)[class*="bg-[color:var(--adm-primary"] *,
+.adm-page__inner :where(button, a)[class*="bg-primary"] svg,
+.adm-page__inner :where(button, a)[class*="!bg-primary"] svg,
+.adm-page__inner :where(button, a)[class*="bg-[color:var(--adm-primary"] svg {
+  color: #ffffff !important;
+  stroke: currentColor !important;
+}
+
+/* أزرار primary الخاصة بصفحة الدفع */
+.adm-payment :where(button, a).adm-btn--primary,
+.adm-payment :where(button, a)[class*="bg-primary"],
+.adm-payment :where(button, a)[class*="!bg-primary"] {
+  color: #ffffff !important;
+}
+
+.adm-payment :where(button, a).adm-btn--primary *,
+.adm-payment :where(button, a)[class*="bg-primary"] *,
+.adm-payment :where(button, a)[class*="!bg-primary"] * {
+  color: #ffffff !important;
+  stroke: currentColor !important;
+}
+
+/* لو الزر معطل، يبقى النص مقروء */
+.adm-btn--primary:disabled,
+.adm-page__inner :where(button, a)[class*="bg-primary"]:disabled {
+  color: #ffffff !important;
+  opacity: 0.58 !important;
+}
